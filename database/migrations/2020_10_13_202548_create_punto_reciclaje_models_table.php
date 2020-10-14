@@ -15,11 +15,11 @@ class CreatePuntoReciclajeModelsTable extends Migration
     {
         Schema::create('punto_reciclaje_models', function (Blueprint $table) {
                 $table->id();
-                $table->string('name');
-                $table->string('email')->unique();
+                $table->string('TipoBasura');
                 $table->string('direccion')->unique();
+                $table->string('HorarioApertura');
+                $table->string('HorarioCierre');
                 $table->timestamps();
-           
         });
     }
 

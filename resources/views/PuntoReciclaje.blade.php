@@ -146,7 +146,7 @@
 	<div id="addEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form>
+				<form action="\" method="POST">
 					@csrf
 					<div class="modal-header">						
 						<h4 class="modal-title">Agregar Punto</h4>
@@ -154,16 +154,20 @@
 					</div>
 					<div class="modal-body">					
 						<div class="form-group">
-							<label>Name</label>
-							<input type="text" class="form-control" required>
+							<label>Tipo de Basura</label>
+							<input type="text" class="form-control" required name='Tbasural'>
 						</div>
 						<div class="form-group">
-							<label>Email</label>
-							<input type="email" class="form-control" required>
+							<label>Direccion</label>
+							<input type="text" class="form-control" required name ='DireccionL'>
 						</div>
 						<div class="form-group">
-							<label>Address</label>
-							<textarea class="form-control" required></textarea>
+							<label>Horario de apertura</label>
+							<input type="number" min="1" max="24"class="form-control" required name ='HaperturaL'>
+						</div>
+						<div class="form-group">
+							<label>Horario de Cierre</label>
+							<input type='number'min="1" max="24" class="form-control" required name ='HcierreL'>
 						</div>
 											
 					</div>
@@ -186,19 +190,21 @@
 					</div>
 					<div class="modal-body">					
 						<div class="form-group">
-							<label>Name</label>
-							<input type="text" class="form-control" required>
+							<label>Tipo de Basura</label>
+							<input type="text" class="form-control" required name='Tbasural'>
 						</div>
 						<div class="form-group">
-							<label>Email</label>
-							<input type="email" class="form-control" required>
+							<label>Direccion</label>
+							<input type="text" class="form-control" required name ='DireccionL'>
 						</div>
 						<div class="form-group">
-							<label>Address</label>
-							<textarea class="form-control" required></textarea>
+							<label>Horario de apertura</label>
+							<input type="number" min="1" max="24"class="form-control" required name ='HaperturaL'>
 						</div>
-											
-					</div>
+						<div class="form-group">
+							<label>Horario de Cierre</label>
+							<input type='number'min="1" max="24" class="form-control" required name ='HcierreL'>
+						</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
 						<input type="submit" class="btn btn-info" value="Save">
