@@ -14,7 +14,7 @@ class CreatePuntoReciclajeModelsTable extends Migration
     public function up()
     {
         Schema::create('punto_reciclaje_models', function (Blueprint $table) {
-                $table->unsignedBigInteger('id');
+                $table->bigIncrements('id');
                 $table->string('TipoBasura');
                 $table->string('direccion')->unique();
                 $table->string('HorarioApertura');
@@ -30,6 +30,9 @@ class CreatePuntoReciclajeModelsTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('punto_reciclaje_models');
+        
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

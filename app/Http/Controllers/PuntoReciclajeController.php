@@ -42,6 +42,7 @@ class PuntoReciclajeController extends Controller
         $Punto->direccion=$request->DireccionL;
         $Punto->HorarioApertura=$request->HaperturaL;
         $Punto->HorarioCierre=$request->HcierreL;
+        //\dd($Punto);
         $Punto->save();
         return \redirect()->back();
     }
