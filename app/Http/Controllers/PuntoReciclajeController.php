@@ -96,6 +96,10 @@ class PuntoReciclajeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $P=PuntoReciclajeModel::find($id);
+        //\dd($P);
+        $P->destroy(array('id',$id));
+        return \redirect('/');
     }
 }
