@@ -25,7 +25,7 @@
 						</div>
 						<div class="col-xs-6">
 							<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Nuevo Punto</span></a>
-							<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Eliminar</span></a>						
+							<a href="./Recolector" class="btn btn-info" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Recolectores	</span></a>						
 						</div>
 					</div>
 				</div>
