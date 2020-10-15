@@ -15,9 +15,12 @@ class CreateDetalleRecolectorsTable extends Migration
     {
         Schema::create('detalle_recolectors', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_punto_reciclaje');
+            $table->foreignId('id_recolectores');
             $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.

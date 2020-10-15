@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\detalle_recolector;
+use App\PuntoReciclajeModel;
+use App\Recolector;
 
 class DetalleRecolectorController extends Controller
 {
@@ -13,7 +16,11 @@ class DetalleRecolectorController extends Controller
      */
     public function index()
     {
-        //
+        $Detalle_R=detalle_recolector::all();
+        $Punto = PuntoReciclajeModel::all();
+        $Recolector=Recolector::all();
+
+        return \view('DetalleRecolector')->with('Detalle_R',$Detalle_R)->with('Punto',$Punto)->with('Recolector',$Recolector);
     }
 
     /**
@@ -34,7 +41,12 @@ class DetalleRecolectorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $DetalleR = new detalle_recolector;
+        
+        $DetalleR->id_punto_reciclaje = $request->Puntos;
+        $DetalleR->id_recolectores = $request->Recolector;
+        $DetalleR->save();
+        return \redirect()->back();
     }
 
     /**

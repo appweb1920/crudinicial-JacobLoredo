@@ -15,12 +15,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PuntoReciclajeController@index');
 Route::post('/','PuntoReciclajeController@store');
+
 Route::get('/EditarPuntoR/{id}','PuntoReciclajeController@edit');
 Route::post('/ActualizarP/{id}','PuntoReciclajeController@update');
 Route::get('/EliminarP/{id}','PuntoReciclajeController@destroy');
+
 Route::get('/Recolector', 'RecolectorController@index');
 Route::post('/Recolector','RecolectorController@store');
-
 Route::get('/EliminarR/{id}','RecolectorController@destroy');
-//Route::post('/EliminaP/{id}','PuntoReciclajeController@destroy');
 
+Route::get('/DetalleRecolector','DetalleRecolectorController@index');
+Route::post('/DetalleRecolector','DetalleRecolectorController@store');
