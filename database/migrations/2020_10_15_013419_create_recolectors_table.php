@@ -14,7 +14,7 @@ class CreateRecolectorsTable extends Migration
     public function up()
     {
         Schema::create('recolectors', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedBigInteger('id');
             $table->string('Nombre');
             $table->string('Dias');
             $table->timestamps();

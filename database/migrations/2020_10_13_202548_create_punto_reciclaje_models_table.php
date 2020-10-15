@@ -14,7 +14,7 @@ class CreatePuntoReciclajeModelsTable extends Migration
     public function up()
     {
         Schema::create('punto_reciclaje_models', function (Blueprint $table) {
-                $table->id();
+                $table->unsignedBigInteger('id');
                 $table->string('TipoBasura');
                 $table->string('direccion')->unique();
                 $table->string('HorarioApertura');
