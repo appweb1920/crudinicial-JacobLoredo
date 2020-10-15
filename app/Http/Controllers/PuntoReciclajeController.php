@@ -65,7 +65,8 @@ class PuntoReciclajeController extends Controller
      */
     public function edit($id)
     {
-        //
+        return \view('EditarPuntoR')->with('PuntoR',PuntoReciclajeModel::find($id));
+
     }
 
     /**
@@ -77,7 +78,14 @@ class PuntoReciclajeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $P=PuntoReciclajeModel::find($id);
+        $P->TipoBasura=$request->Tbasural;
+        $P->direccion=$request->DireccionL;
+        $P->HorarioApertura=$request->HaperturaL;
+        $P->HorarioCierre=$request->HcierreL;
+        $P->save();
+        return \redirect('/');
+
     }
 
     /**

@@ -38,93 +38,39 @@
 									<label for="selectAll"></label>
 								</span>
 							</th>
-							<th>Nombre</th>
-							<th>Email</th>
+							<th>TipoBasura</th>
 							<th>Address</th>
+							<th>HorarioApertura</th>
+							<th>HorarioCierre</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox1" name="options[]" value="1">
-									<label for="checkbox1"></label>
-								</span>
-							</td>
-							<td>Thomas Hardy</td>
-							<td>thomashardy@mail.com</td>
-							<td>89 Chiaroscuro Rd, Portland, USA</td>
+
+					@if (!is_null($PReciclaje))
+    					@foreach ($PReciclaje as $P)
+							<tr>
+								<td>
+									<span class="custom-checkbox">
+										<input type="checkbox" id="checkbox1" name="options[]" value="1">
+										<label for="checkbox1"></label>
+									</span>
+								</td>
+
 							
-							<td>
-								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-								<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox2" name="options[]" value="1">
-									<label for="checkbox2"></label>
-								</span>
-							</td>
-							<td>Dominique Perrier</td>
-							<td>dominiqueperrier@mail.com</td>
-							<td>Obere Str. 57, Berlin, Germany</td>
-							
-							<td>
-								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-								<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox3" name="options[]" value="1">
-									<label for="checkbox3"></label>
-								</span>
-							</td>
-							<td>Maria Anders</td>
-							<td>mariaanders@mail.com</td>
-							<td>25, rue Lauriston, Paris, France</td>
-							
-							<td>
-								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-								<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox4" name="options[]" value="1">
-									<label for="checkbox4"></label>
-								</span>
-							</td>
-							<td>Fran Wilson</td>
-							<td>franwilson@mail.com</td>
-							<td>C/ Araquil, 67, Madrid, Spain</td>
-							
-							<td>
-								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-								<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-							</td>
-						</tr>					
-						<tr>
-							<td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox5" name="options[]" value="1">
-									<label for="checkbox5"></label>
-								</span>
-							</td>
-							<td>Martin Blank</td>
-							<td>martinblank@mail.com</td>
-							<td>Via Monte Bianco 34, Turin, Italy</td>
-							
-							<td>
-								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-								<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-							</td>
-						</tr> 
+								<td>{{$P->TipoBasura}}</td>
+								<td>{{$P->direccion}}</td>
+								<td>{{$P->HorarioApertura}}</td>
+								<td>{{$P->HorarioCierre}}</td>
+								<td>
+									<a href="./EditarPuntoR/{{$P->id}}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+									<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+								</td>
+							</tr>
+    					@endforeach
+    				@endif
+						
+				
 					</tbody>
 				</table>
 				<div class="clearfix">
@@ -179,40 +125,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- Edit Modal HTML -->
-	<div id="editEmployeeModal" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form>
-					<div class="modal-header">						
-						<h4 class="modal-title">Edit Employee</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">					
-						<div class="form-group">
-							<label>Tipo de Basura</label>
-							<input type="text" class="form-control" required name='Tbasural'>
-						</div>
-						<div class="form-group">
-							<label>Direccion</label>
-							<input type="text" class="form-control" required name ='DireccionL'>
-						</div>
-						<div class="form-group">
-							<label>Horario de apertura</label>
-							<input type="number" min="1" max="24"class="form-control" required name ='HaperturaL'>
-						</div>
-						<div class="form-group">
-							<label>Horario de Cierre</label>
-							<input type='number'min="1" max="24" class="form-control" required name ='HcierreL'>
-						</div>
-					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<input type="submit" class="btn btn-info" value="Save">
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+	
 	<!-- Delete Modal HTML -->
 	<div id="deleteEmployeeModal" class="modal fade">
 		<div class="modal-dialog">

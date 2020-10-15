@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('PuntoReciclaje');
-});
+Route::get('/', 'PuntoReciclajeController@index');
 Route::post('/','PuntoReciclajeController@store');
+Route::get('/EditarPuntoR/{id}','PuntoReciclajeController@edit');
+Route::post('/ActualizarP/{id}','PuntoReciclajeController@update');
 
