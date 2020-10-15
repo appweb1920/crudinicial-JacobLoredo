@@ -20,5 +20,7 @@ Route::post('/ActualizarP/{id}','PuntoReciclajeController@update');
 Route::get('/EliminarP/{id}','PuntoReciclajeController@destroy');
 Route::get('/Recolector', 'RecolectorController@index');
 Route::post('/Recolector','RecolectorController@store');
+
+Route::get('/EliminarR/{id}','RecolectorController@destroy');
 //Route::post('/EliminaP/{id}','PuntoReciclajeController@destroy');
 

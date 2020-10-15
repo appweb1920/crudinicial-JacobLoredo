@@ -90,6 +90,9 @@ class RecolectorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $R =Recolector::find($id);
+       
+        $R->destroy(array('id',$id));
+        return \redirect('/Recolector');
     }
 }
