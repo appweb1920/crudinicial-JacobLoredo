@@ -61,8 +61,8 @@
 								<td>{{$R->id_recolectores}}</td>
 								
 								<td>
-									<a href="./EditarPuntoR/" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-									<a href="./EliminarP/" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+									<a href="./EditarDR/{{$R->id}}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+									<a href="./EliminarDR/{{$R->id}}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 								</td>
 							</tr>
     					@endforeach
@@ -86,7 +86,7 @@
 						<div class="form-group">
 							<label>Tipo de Basura</label>
 							<label for="Puntos"></label>
-                            <select id="Puntos" name="Puntos">
+                            <select id="Puntos" name="Puntos" >
                             @if (!is_null($Punto))
     					        @foreach ($Punto as $P)
                                 <option value="{{$P->id}}">{{$P->id}}.-{{$P->TipoBasura}}</option>
@@ -115,5 +115,8 @@
 						<input type="submit" class="btn btn-success" value="Agregar">
 					</div>
 				</form>
+				</div>
+		</div>
+	</div>
 </body>
 </html>

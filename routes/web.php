@@ -24,8 +24,10 @@ Route::get('/Recolector', 'RecolectorController@index');
 Route::post('/Recolector','RecolectorController@store');
 Route::get('/EditarR/{id}','RecolectorController@edit');
 Route::post('/ActualizarR/{id}','RecolectorController@update');
-
 Route::get('/EliminarR/{id}','RecolectorController@destroy');
 
 Route::get('/DetalleRecolector','DetalleRecolectorController@index');
 Route::post('/DetalleRecolector','DetalleRecolectorController@store');
+Route::get('/EditarDR/{id}','DetalleRecolectorController@edit');
+Route::post('/ActualizarDr/{id}','DetalleRecolectorController@update');
+Route::get('/EliminarDR/{id}','DetalleRecolectorController@destroy');

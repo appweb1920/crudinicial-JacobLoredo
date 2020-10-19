@@ -68,7 +68,9 @@ class DetalleRecolectorController extends Controller
      */
     public function edit($id)
     {
-        //
+        //\dd(detalle_recolector::find($id));
+        return \view('EditarDR')->with('DetalleR',detalle_recolector::find($id))->with('Punto',PuntoReciclajeModel::all())->with('Recolector',Recolector::all());
+       
     }
 
     /**
@@ -80,7 +82,12 @@ class DetalleRecolectorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $DR=detalle_recolector::find($id);
+        
+        $DR->id_punto_reciclaje = $request->Puntos;
+        $DR->id_recolectores = $request->Recolector;
+        $DR->save();
+        return \redirect('DetalleRecolector');
     }
 
     /**
@@ -91,6 +98,9 @@ class DetalleRecolectorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $DR=detalle_recolector::find($id);
+        
+        $DR->destroy(array('id',$id));
+        return \redirect('/DetalleRecolector');
     }
 }
