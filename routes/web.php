@@ -22,6 +22,9 @@ Route::get('/EliminarP/{id}','PuntoReciclajeController@destroy');
 
 Route::get('/Recolector', 'RecolectorController@index');
 Route::post('/Recolector','RecolectorController@store');
+Route::get('/EditarR/{id}','RecolectorController@edit');
+Route::post('/ActualizarR/{id}','RecolectorController@update');
+
 Route::get('/EliminarR/{id}','RecolectorController@destroy');
 
 Route::get('/DetalleRecolector','DetalleRecolectorController@index');

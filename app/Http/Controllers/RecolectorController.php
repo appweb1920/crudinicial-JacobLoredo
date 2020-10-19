@@ -67,7 +67,7 @@ class RecolectorController extends Controller
      */
     public function edit($id)
     {
-        //
+        return \view('EditarR')->with('RecolectorR',Recolector::find($id));
     }
 
     /**
@@ -79,7 +79,16 @@ class RecolectorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $Recolector=Recolector::find($id);
+        $d="";
+        $Recolector->Nombre=$request->Nom_Recolector;
+        foreach($request->Dias as $value){
+            $d.=$value.',';
+        }
+        $Recolector->Dias=$d;
+        $Recolector->save();
+        return \redirect('/Recolector');
+    
     }
 
     /**
