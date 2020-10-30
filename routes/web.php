@@ -31,3 +31,7 @@ Route::post('/DetalleRecolector','DetalleRecolectorController@store');
 Route::get('/EditarDR/{id}','DetalleRecolectorController@edit');
 Route::post('/ActualizarDr/{id}','DetalleRecolectorController@update');
 Route::get('/EliminarDR/{id}','DetalleRecolectorController@destroy');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
