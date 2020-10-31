@@ -1,29 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DetalleRecolector</title>
-	
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="{{asset('styles.min.css') }}">
+	<head>
+	<title>DetalleRecolector</title>
+    @include('layouts.head')
 </head>
 <body>
+	@include('layouts.appbar')
 <div class="container">
 		<div class="table-responsive">
 			<div class="table-wrapper">
 				<div class="table-title">
 					<div class="row">
-						<div class="col-xs-6">
+						<div class="col-xs-3">
 							<h2>Detalle Recolector</b></h2>
 						</div>
-						<div class="col-xs-6">
+						<div class="col-xs-3" {{ Auth::user()->Tipo_Usuario == 2 || is_null( Auth::user()->Tipo_Usuario) ? 'hidden' : ''}}>
 							<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Nueva Relacion</span></a>
+						</div>
+						<div class="col-xs-3">
 							<a href="./" class="btn btn-info" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>	PuntosRecoleccion</span></a>						
 						</div>
 					</div>
@@ -60,7 +54,7 @@
 								<td>{{$R->id_punto_reciclaje}}</td>
 								<td>{{$R->id_recolectores}}</td>
 								
-								<td>
+								<td {{ Auth::user()->Tipo_Usuario == 2 || is_null( Auth::user()->Tipo_Usuario) ? 'hidden' : ''}}>
 									<a href="./EditarDR/{{$R->id}}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 									<a href="./EliminarDR/{{$R->id}}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 								</td>

@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="{{asset('styles.min.css') }}">
+    @include('layouts.head')
 
     <title>Punto de Reciclaje</title>
 </head>
 <body>
+	@include('layouts.appbar')
 <div>
 <div class="container">
 		<div class="table-responsive">
 			<div class="table-wrapper">
 				<div class="table-title">
 					<div class="row">
-						<div class="col-xs-6">
+						<div class="col-xs-3">
 							<h2>Punto de reciclaje</b></h2>
 						</div>
-						<div class="col-xs-6">
-							
-							<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Nuevo Punto</span></a>
+						
+						<div class="col-xs-3"  {{ Auth::user()->Tipo_Usuario == 2 || is_null( Auth::user()->Tipo_Usuario) ? 'hidden' : ''}}>
+							<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons" >&#xE147;</i> <span>Nuevo Punto</span></a>
+						</div>
+						<div class="col-xs-3"  >
 							<a href="./Recolector" class="btn btn-info" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Recolectores	</span></a>	
+						</div>
+						<div class="col-xs-3"  >
 							<a href="./DetalleRecolector" class="btn btn-info" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Detalle_Recolector</span></a>					
+					
 						</div>
 					</div>
 				</div>
@@ -64,7 +62,7 @@
 								<td>{{$P->direccion}}</td>
 								<td>{{$P->HorarioApertura}}</td>
 								<td>{{$P->HorarioCierre}}</td>
-								<td>
+								<td {{ Auth::user()->Tipo_Usuario == 2 || is_null( Auth::user()->Tipo_Usuario) ? 'hidden' : ''}}>
 									<a href="./EditarPuntoR/{{$P->id}}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 									<a href="./EliminarP/{{$P->id}}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 								</td>

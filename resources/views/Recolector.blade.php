@@ -1,28 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recolectores</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="{{asset('styles.min.css') }}">
+	<title>Recolectores</title>
+    @include('layouts.head')
 </head>
 <body>
+	@include('layouts.appbar')
 <div class="container">
 		<div class="table-responsive">
 			<div class="table-wrapper">
 				<div class="table-title">
 					<div class="row">
-						<div class="col-xs-6">
+						<div class="col-xs-3">
 							<h2>Recolectores</b></h2>
 						</div>
-						<div class="col-xs-6">
+						<div class="col-xs-3"  {{ Auth::user()->Tipo_Usuario == 2 || is_null( Auth::user()->Tipo_Usuario) ? 'hidden' : ''}}>
 							<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Nuevo Recolector</span></a>
+						</div>
+						<div class="col-xs-3">
 							<a href="./" class="btn btn-info" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Puntos Reciclaje	</span></a>						
 						</div>
 					</div>
@@ -57,7 +52,7 @@
 								<td>{{$R->Nombre}}</td>
 								<td>{{$R->Dias}}</td>
 								
-								<td>
+								<td {{ Auth::user()->Tipo_Usuario == 2 || is_null( Auth::user()->Tipo_Usuario) ? 'hidden' : ''}}>
 									<a href="./EditarR/{{$R->id}}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 									<a href="./EliminarR/{{$R->id}}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 								</td>

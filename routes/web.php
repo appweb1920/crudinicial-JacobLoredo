@@ -13,24 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PuntoReciclajeController@index');
+Route::get('/', 'PuntoReciclajeController@index')->middleware('auth');
 Route::post('/','PuntoReciclajeController@store');
 
 Route::get('/EditarPuntoR/{id}','PuntoReciclajeController@edit');
-Route::post('/ActualizarP/{id}','PuntoReciclajeController@update');
+Route::post('/ActualizarP/{id}','PuntoReciclajeController@update')->middleware('auth');
 Route::get('/EliminarP/{id}','PuntoReciclajeController@destroy');
 
 Route::get('/Recolector', 'RecolectorController@index');
-Route::post('/Recolector','RecolectorController@store');
+Route::post('/Recolector','RecolectorController@store')->middleware('auth');
 Route::get('/EditarR/{id}','RecolectorController@edit');
-Route::post('/ActualizarR/{id}','RecolectorController@update');
+Route::post('/ActualizarR/{id}','RecolectorController@update')->middleware('auth');
 Route::get('/EliminarR/{id}','RecolectorController@destroy');
 
-Route::get('/DetalleRecolector','DetalleRecolectorController@index');
+Route::get('/DetalleRecolector','DetalleRecolectorController@index')->middleware('auth');
 Route::post('/DetalleRecolector','DetalleRecolectorController@store');
-Route::get('/EditarDR/{id}','DetalleRecolectorController@edit');
-Route::post('/ActualizarDr/{id}','DetalleRecolectorController@update');
-Route::get('/EliminarDR/{id}','DetalleRecolectorController@destroy');
+Route::get('/EditarDR/{id}','DetalleRecolectorController@edit')->middleware('auth');
+Route::post('/ActualizarDr/{id}','DetalleRecolectorController@update')->middleware('auth');
+Route::get('/EliminarDR/{id}','DetalleRecolectorController@destroy')->middleware('auth');
 
 Auth::routes();
 
